@@ -121,5 +121,7 @@ public class MokeLru {
         lru.printListNode();
         lru.add(3);
         lru.printListNode();
+        lru.add(1);
+        lru.printListNode();
     }
 }
