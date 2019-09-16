@@ -1,4 +1,5 @@
-package com.rishi.linkedlist;
+package com.rishi.list;
+
 
 public class ListNode {
 
