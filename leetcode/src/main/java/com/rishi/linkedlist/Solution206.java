@@ -71,28 +71,16 @@ public class Solution206 {
      * @return
      */
     static ListNode reverseList4(ListNode head) {
-        return reverse(head);
-    }
-
-    static ListNode reverse(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode next = head.next;
+        ListNode p = reverseList4(head.next);
+        head.next.next = head;
         head.next = null;
-        ListNode reverse = reverse(next);
-        append(head, reverse);
-        return reverse;
+        return p;
+
     }
 
-    static void append(ListNode head, ListNode reverse) {
-        for (ListNode node = reverse; ; node = node.next) {
-            if (node.next == null) {
-                node.next = head;
-                break;
-            }
-        }
-    }
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
