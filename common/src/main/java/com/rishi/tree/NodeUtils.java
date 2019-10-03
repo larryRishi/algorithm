@@ -7,6 +7,15 @@ package com.rishi.tree;
  **/
 public class NodeUtils {
 
+
+    /**
+     * 按层遍历二叉树
+     */
+    public static void floorOrder() {
+
+    }
+
+
     /**
      * 前序遍历 （当前结点-left结点-right结点）
      * @param node

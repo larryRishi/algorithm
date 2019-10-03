@@ -32,6 +32,15 @@ public class NodeTest {
     }
 
 
+    /**
+     *               1
+     *             /  \
+     *           2     3
+     *          / \   / \
+     *         4  5  8  9
+     *       /  \  \
+     *      6   7  10
+     */
     @Before
     public void init() {
         root = new Node(1);
