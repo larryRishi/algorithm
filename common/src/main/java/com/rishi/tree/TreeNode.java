@@ -5,16 +5,16 @@ package com.rishi.tree;
  * @desc 二叉树结点
  * @date 2019/09/30
  **/
-public class Node {
+public class TreeNode {
 
     public int val;
 
-    public Node left;
+    public TreeNode left, right;
 
-    public Node right;
-
-    public Node(int val) {
+    public TreeNode(int val) {
         this.val = val;
+        this.left = null;
+        this.right = null;
     }
 
 }

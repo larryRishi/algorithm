@@ -1,36 +1,26 @@
-package com.rishi.node;
+package com.rishi.tree;
 
-import com.rishi.tree.TreeNode;
-import com.rishi.tree.NodeUtils;
-import org.junit.Before;
-import org.junit.Test;
+
 
 /**
  * @author liuhx
- * @desc NodeTest
- * @date 2019/09/30
+ * @desc 树的各种排序
+ * @date 2019/10/06
  **/
-public class NodeTest {
+public class TreeOrder {
 
-    TreeNode root = null;
-
-
-
-    @Test
-    public void testPreOrder() {
-        NodeUtils.preOrder(root);
+    /**
+     * 中序遍历（左-中-右）
+     * @param root
+     */
+    static void inOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.val+"-");
+        inOrder(root.right);
     }
-
-    @Test
-    public void testMidOrder() {
-        NodeUtils.midOrder(root);
-    }
-
-    @Test
-    public void testPostOrder() {
-        NodeUtils.postOrder(root);
-    }
-
 
     /**
      *               1
@@ -41,9 +31,8 @@ public class NodeTest {
      *       /  \  \
      *      6   7  10
      */
-    @Before
-    public void init() {
-        root = new TreeNode(1);
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
@@ -53,5 +42,7 @@ public class NodeTest {
         root.left.right.right = new TreeNode(10);
         root.right.left = new TreeNode(8);
         root.right.right = new TreeNode(9);
+        inOrder(root);
     }
+
 }

@@ -20,7 +20,7 @@ public class NodeUtils {
      * 前序遍历 （当前结点-left结点-right结点）
      * @param node
      */
-    public static void preOrder(Node node) {
+    public static void preOrder(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -33,7 +33,7 @@ public class NodeUtils {
      * 中序遍历（left结点--当前结点--right结点）
      * @param node
      */
-    public static void midOrder(Node node) {
+    public static void midOrder(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -47,7 +47,7 @@ public class NodeUtils {
      * 后序遍历（left结点--right结点--当前结点）
      * @param node
      */
-    public static void postOrder(Node node) {
+    public static void postOrder(TreeNode node) {
         if (node == null) {
             return;
         }
