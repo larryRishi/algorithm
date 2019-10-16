@@ -16,7 +16,6 @@ public class Solution00 {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-
         removeNthFromEnd(head, 5).printList();
     }
 

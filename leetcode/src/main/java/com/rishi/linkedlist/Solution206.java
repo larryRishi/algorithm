@@ -94,7 +94,22 @@ public class Solution206 {
 //        System.out.println("reverseList2:");
 //        reverseList2(head).printList();
 //        System.out.println("reverseList3:");
-        reverseList4(head).printList();
+        reverseList5(head).printList();
     }
 
+
+    static ListNode reverseList5(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = head;
+        ListNode cur = head.next;
+        while(cur != null) {
+            head.next = head.next.next;
+            cur.next = newHead;
+            newHead = cur;
+            cur = head.next;
+        }
+        return newHead;
+    }
 }
