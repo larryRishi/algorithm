@@ -1,6 +1,7 @@
 package com.rishi.queue;
 
 import java.util.PriorityQueue;
+import java.util.Stack;
 
 /**
  * @author liuhx
@@ -9,10 +10,21 @@ import java.util.PriorityQueue;
  **/
 public class Main {
 
-
+    /**
+     * ["MyCircularDeque","insertLast","insertLast","insertFront","insertFront","getRear","isFull","deleteLast","insertFront","getFront"]
+     * [[3],[1],[2],[3],[4],[],[],[],[4],[]]
+     */
     public static void main(String[] args) {
-        PriorityQueue<String> queue = new PriorityQueue<>();
-
+        MyCircularDeque deque = new MyCircularDeque(3);
+        System.out.println(deque.insertLast(1));
+        System.out.println(deque.insertLast(2));
+        System.out.println(deque.insertFront(3));
+        System.out.println(deque.insertFront(4));
+        System.out.println(deque.getRear());
+        System.out.println(deque.isFull());
+        System.out.println(deque.deleteLast());
+        System.out.println(deque.insertFront(4));
+        System.out.println(deque.getFront());
     }
 
 }
