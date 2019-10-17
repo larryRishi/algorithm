@@ -11,8 +11,16 @@ public class Main {
 
 
     public static void main(String[] args) {
-        PriorityQueue<String> queue = new PriorityQueue<>();
-
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(2);
+        queue.add(1);
+        queue.add(3);
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
     }
 
 }
