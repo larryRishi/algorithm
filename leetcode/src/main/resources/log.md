@@ -8,3 +8,6 @@
 - [589] https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/
 - [590] https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
 - [429] https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
+- [104] https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+
+- [树的序列化及反序列化297] https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/submissions/
