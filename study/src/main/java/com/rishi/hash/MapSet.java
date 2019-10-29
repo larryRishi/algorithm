@@ -14,8 +14,7 @@ public class MapSet {
 
     public static void main(String[] args) {
         Map<String, String> map = new HashMap<>();
-        Set<String> set = new HashSet<>();
-        String str = "sss";
+        map.put("k", "v");
         
     }
 
