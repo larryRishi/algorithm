@@ -31,3 +31,11 @@
     - 双向广度优先算法 （未做）
 - [200岛屿的生成] https://leetcode-cn.com/problems/number-of-islands/
     - 无向图 深度优先搜索
+    
+### 2019/10/31
+- https://leetcode-cn.com/problems/lemonade-change/description/
+- https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/description/
+- https://leetcode-cn.com/problems/assign-cookies/description/
+- https://leetcode-cn.com/problems/walking-robot-simulation/description/
+- https://leetcode-cn.com/problems/jump-game/
+- https://leetcode-cn.com/problems/jump-game-ii/
