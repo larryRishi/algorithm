@@ -23,6 +23,11 @@ class TrieNode {
 
 }
 
+/**
+ * 实现字典树
+ * insert时间复杂度：O(N)
+ * search时间复杂度：O(N)
+ */
 class Trie {
 
     private TrieNode root;
