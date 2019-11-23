@@ -30,7 +30,7 @@ class TrieNode {
  */
 class Trie {
 
-    private TrieNode root;
+     TrieNode root;
 
     /** Initialize your data structure here. */
     public Trie() {
