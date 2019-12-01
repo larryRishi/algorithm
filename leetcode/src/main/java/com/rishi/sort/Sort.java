@@ -1,5 +1,9 @@
 package com.rishi.sort;
 
+
+import static com.rishi.sort.CommonUtils.print;
+import static com.rishi.sort.CommonUtils.swap;
+
 /**
  * @author liuhx
  * @desc 选择排序
@@ -15,18 +19,48 @@ public class Sort {
         //new Sort().bubbleSort(array);
         //new Sort().insertSort(array);
         //new Sort().quickSort(array);
-        new Sort().mergeSort(array, 0, 8);
-
+        //new Sort().mergeSort(array, 0, 8);
+        new Sort().countingSort(array);
 
         print(array);
     }
 
 
-    //-------------------------高级排序---------------------------------
+    //---------------------非比较排序之计数排序--------------
+
+    /**
+     * 计数排序
+     *
+     * @param a
+     */
+    public int[] countingSort(int[] a) {
+        int max = a[0];
+        int min = a[0];
+        for (int i = 1; i < a.length; i++) {
+            max = Math.max(max, a[i]);
+            min = Math.min(min, a[i]);
+        }
+        int[] sortedArray = new int[max - min + 1];
+        for (int i = 0; i < a.length; i++) {
+            sortedArray[a[i] - min]++;
+        }
+        int index = 0;
+        for (int i = 0; i < sortedArray.length; i++) {
+            while (sortedArray[i] > 0) {
+                a[index++] = i + min;
+                sortedArray[i]--;
+            }
+        }
+        return a;
+    }
+
+
+    //-------------------------比较排序之高级排序---------------------------------
 
     /**
      * 归并排序
      * 时间复杂度为O(logN)
+     *
      * @param array
      * @param left
      * @param right
@@ -63,6 +97,7 @@ public class Sort {
      * 快排
      * 时间复杂度：O(logN)
      * 空间复杂度为：O(logN)
+     *
      * @param arrays
      */
     public void quickSort(int[] arrays) {
@@ -103,7 +138,7 @@ public class Sort {
     }
 
 
-    //----------------------初级排序--------------------------------
+    //----------------------比较排序之初级排序--------------------------------
 
     /**
      * 插入排序
@@ -164,21 +199,5 @@ public class Sort {
         }
     }
 
-
-    //--------------------------工具method--------------------------
-
-
-    private void swap(int[] arrays, int i, int j) {
-        int temp = arrays[i];
-        arrays[i] = arrays[j];
-        arrays[j] = temp;
-    }
-
-
-    private static void print(int[] array) {
-        for (int value : array) {
-            System.out.print(value + ", ");
-        }
-    }
 
 }
