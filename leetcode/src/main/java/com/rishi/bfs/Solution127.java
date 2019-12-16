@@ -65,6 +65,68 @@ public class Solution127 {
         return 0;
     }
 
+
+    /**
+     * TODO 使用双向BFS
+     * @param beginWord
+     * @param endWord
+     * @param wordList
+     * @return
+     */
+    public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
+        if (!wordList.contains(endWord)) {
+            return 0;
+        }
+        // 扫描单词库，建立匹配符号
+        Map<String, List<String>> allMatchers = buildMatchers(wordList);
+        List<String> visited = new ArrayList<>();
+        Queue<Pair<String, Integer>> queue = new LinkedList<>();
+        Pair<String, Integer> root = new Pair<>(beginWord, 1);
+        queue.offer(root);
+
+        Queue<Pair<String, Integer>> tailQueue = new LinkedList<>();
+        tailQueue.offer(new Pair<>(endWord, 1));
+        // 广度优先搜索
+        while (!queue.isEmpty() && !tailQueue.isEmpty()) {
+            int size = queue.size();
+            int tailSize = tailQueue.size();
+            while (size-- > 0 ) {
+                Pair<String, Integer> node = queue.poll();
+                String key = node.getKey();
+                for (int i = 0; i < key.length(); i++) {
+                    String match = key.substring(0, i) + "*" + key.substring(i + 1);
+                    List<String> matchers = allMatchers.getOrDefault(match, new ArrayList<>());
+                    if (matchers.size() != 0) {
+                        for (String find : matchers) {
+                            if (visited.contains(find)) {
+                                continue;
+                            }
+                            if (find.equals(endWord)) {
+                                return node.getValue() + 1;
+                            }
+                            queue.offer(new Pair<>(find, node.getValue() + 1));
+                            visited.add(find);
+                        }
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
+    private Map<String, List<String>> buildMatchers(List<String> wordList) {
+        Map<String, List<String>> matchers = new HashMap<>();
+        wordList.forEach(word -> {
+            for (int i = 0; i < word.length(); i++) {
+                String match = word.substring(0, i) + "*" + word.substring(i + 1);
+                List<String> ws = matchers.getOrDefault(match, new ArrayList<>());
+                ws.add(word);
+                matchers.put(match, ws);
+            }
+        });
+        return matchers;
+    }
+
     public static void main(String[] args) {
         /*
          * beginWord = "hit",
