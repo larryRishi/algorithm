@@ -20,7 +20,8 @@ public class Sort {
         //new Sort().insertSort(array);
         //new Sort().quickSort(array);
         //new Sort().mergeSort(array, 0, 8);
-        new Sort().countingSort(array);
+        int i = new Sort().quickSortFindK(array, 3);
+        System.out.println(i);
 
         print(array);
     }
@@ -199,5 +200,59 @@ public class Sort {
         }
     }
 
+
+
+    //---------------------------------------------------------------------
+
+    /**
+     * 利用快排确定第K大元素
+     * 时间复杂度：O(logN)
+     * 空间复杂度为：O(logN)
+     *
+     * @param arrays
+     */
+    public int quickSortFindK(int[] arrays, int k) {
+        int begin = 0;
+        int end = arrays.length - 1;
+        return helper2(arrays, begin, end, k);
+    }
+
+    private int helper2(int[] arrays, int begin, int end, int k) {
+        if (begin >= end) {
+            return arrays[begin];
+        }
+        //当前逻辑
+        int pivot = pivotFor2(arrays, begin, end);
+        if (pivot + 1 == k) {
+            return arrays[pivot];
+        }
+        if (pivot + 1 > k) {
+            return helper2(arrays, begin, pivot - 1, k);
+        } else {
+            return helper2(arrays, pivot + 1, end, k);
+        }
+
+
+    }
+
+    /**
+     * 确定基准
+     *
+     * @param arrays
+     * @param begin
+     * @param end
+     * @return
+     */
+    private int pivotFor2(int[] arrays, int begin, int end) {
+        int counter = begin;
+        int pivot = end;
+        for (int i = begin; i < end; i++) {
+            if (arrays[i] < arrays[pivot]) {
+                swap(arrays, i, counter++);
+            }
+        }
+        swap(arrays, counter, pivot);
+        return counter;
+    }
 
 }
