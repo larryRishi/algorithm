@@ -16,7 +16,8 @@ public class Solution46 {
         Solution46 solution46 = new Solution46();
         int[] nums = new int[]{1, 2, 3};
         System.out.println(solution46.permute(nums));
-
+        System.out.println("----");
+        System.out.println(System.getProperty("sun.arch.data.model"));
     }
 
     public List<List<Integer>> permute(int[] nums) {
